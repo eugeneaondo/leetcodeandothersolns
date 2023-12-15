@@ -14,13 +14,15 @@ def readlog(logfile):
             process_name = components[1]
             action = components[2]
 
+
             if process_name not in process_dict:
                 process_dict[process_name] = {}
 
             process_dict[process_name][action] = timestamp
-
     return process_dict
 
+
+print(readlog(logfile))
 
 def calculate_process_time(process_dict):
     process_times = {}
@@ -31,7 +33,7 @@ def calculate_process_time(process_dict):
             process_time = stop_time - start_time
             process_times[process_name] = process_time
 
-    return process_time
+    return process_times
 
 
 def calculate_average_process_time(process_times):
@@ -43,9 +45,4 @@ def calculate_average_process_time(process_times):
     average_time = total_time/number_of_processes
 
     return average_time
-
-
-
-
-
 
